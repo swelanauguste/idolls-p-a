@@ -16,7 +16,6 @@ python manage.py migrate
 python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser --noinput
-# python manage.py loaddata  --exclude=auth.permission --exclude=contenttypes db3_5_2024.json
 python manage.py collectstatic --noinput
 
 exec "$@"
