@@ -20,7 +20,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-
+CSRF_TRUSTED_ORIGINS = ["https://i-dolls.kingship.info"]
 # Application definition
 
 INSTALLED_APPS = [
