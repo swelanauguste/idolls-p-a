@@ -1,14 +1,14 @@
 services:
   web:
     build: ./app
-    command: python manage.py runserver 0.0.0.0:8000
-    # command: gunicorn cf.wsgi:application --bind 0.0.0.0:8004
+    # command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn cf.wsgi:application --bind 0.0.0.0:8004
     volumes:
       - ./app/:/usr/src/app/
       - static_volume:/usr/src/app/staticfiles
       - media_volume:/usr/src/app/mediafiles
     ports:
-      - 8004:8000
+      - 8004:8004
     env_file:
       - ./.env
     restart: always
