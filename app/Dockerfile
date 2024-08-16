@@ -4,6 +4,12 @@ FROM python:3.13.0rc1-slim-bookworm
 # set work directory
 WORKDIR /usr/src/app
 
+# create directory for the app user
+RUN mkdir -p /home/app
+RUN mkdir -p /usr/src/app/mediafiles
+RUN mkdir -p /usr/src/app/staticfiles
+
+
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
