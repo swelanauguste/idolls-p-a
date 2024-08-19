@@ -4,34 +4,34 @@ from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
 
-from .forms import ContactForm
+from .forms import BookingForm
 from .models import Promotion
-from .tasks import send_contact_us_email
+from .tasks import send_booking_us_email
 
 
-def contact_view(request):
+def booking_view(request):
     if request.method == "POST":
-        form = ContactForm(request.POST)
+        form = BookingForm(request.POST)
         if form.is_valid():
-            # Save the contact form data to the database
-            contact = form.save()
+            # Save the booking form data to the database
+            booking = form.save()
 
             # Prepare email sending
             recipients = ["idolls758@gmail.com"]
-            if contact.cc_myself:
-                recipients.append(contact.sender)
-            contact_message = f"{contact.service.name}\n\n{contact.message}"
+            if booking.cc_myself:
+                recipients.append(booking.sender)
+            booking_message = f"{booking.service.name}\n\n{booking.message}"
             # Send email asynchronously
-            send_contact_us_email.after_response(
-                contact.subject, contact_message, contact.sender, recipients
+            send_booking_us_email.after_response(
+                booking.subject, booking_message, booking.sender, recipients
             )
 
             messages.success(request, "Thank you for your message.")
             return redirect("/") 
     else:
-        form = ContactForm()
+        form = BookingForm()
 
-    return render(request, "promotions/contact.html", {"form": form})
+    return render(request, "promotions/booking.html", {"form": form})
 
 
 class PromotionCreateView(CreateView):

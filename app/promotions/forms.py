@@ -1,9 +1,9 @@
 from django import forms
 
-from .models import Contact
+from .models import Booking
 
 
-class ContactForm(forms.ModelForm):
+class BookingForm(forms.ModelForm):
     class Meta:
-        model = Contact
+        model = Booking
         fields = ["subject", "service", "message", "sender", "cc_myself"]

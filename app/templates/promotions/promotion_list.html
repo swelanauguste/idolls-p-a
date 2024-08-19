@@ -6,7 +6,7 @@ Home
 {% endblock head_title %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="w-100">
     <div class="row">
         <div class="col d-flex align-items-center bg-white">
             <div class="pe-5 text-end">
@@ -62,7 +62,7 @@ Home
     </div>
 
     <section class="mb-5">
-
+<div class="w-100 bg-dark m-0 p-0" style="height: 2rem;"></div>
         <div class="container text-center">
             <h1 class="display-2 fw-bold text-burgundy">The Power Of
                 Promotional
@@ -105,7 +105,7 @@ Home
     </section>
     <section class="text-center my-5">
         <a class="btn btn-lg btn-burgundy px-5 rounded-pill"
-            href="{% url 'contact' %}">Services</a>
+            href="{% url 'booking' %}">Services</a>
     </section>
     <section class="row bg-burgundy">
         <div class="col">
@@ -128,7 +128,7 @@ Home
                     facere
                     nisi perspiciatis exercitationem?.</p><br>
                 <a class="btn btn-lg btn-light px-5 rounded-pill"
-                    href="{% url 'contact' %}">More</a>
+                    href="{% url 'booking' %}">More</a>
             </div>
         </div>
     </section>
@@ -144,7 +144,6 @@ Home
                     unforgettable. Here's why choosing I-Dolls is the right
                     move
                     for your promotional needs:</p>
-                <div class="ms-5">
                     <strong>Tailored Solutions</strong>
                     <p>We understand that no two brands are alike. That's why
                         we
@@ -194,7 +193,6 @@ Home
                         to
                         exceed
                         your expectations.</p>
-                </div>
                 <p>Choose I-Dolls Promotional Agency and partner with a team
                     that’s
                     committed to helping you achieve your promotional goals.
@@ -203,7 +201,7 @@ Home
                 <br>
 
                 <a class="btn btn-light btn-lg px-5 rounded-pill"
-                    href="{% url 'contact' %}">More</a>
+                    href="{% url 'booking' %}">More</a>
             </div>
         </div>
         <div class="col mx-auto">
@@ -255,7 +253,7 @@ Home
                 </button>
             </div>
         </div>
-        <div class="col bg-white p-5">
+        <div id="contact-us" class="col bg-white p-5">
             <div class="pe-5 text-lg-start text-center">
                 <h1 class="display-1 fw-bold">I-Dolls Promotional
                     Agency</h1>

@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import Contact, Promotion, Service
+from .models import Booking, Promotion, Service
 
 admin.site.register(Promotion)
-admin.site.register(Contact)
+admin.site.register(Booking)
 admin.site.register(Service)
