@@ -34,19 +34,19 @@ def booking_view(request):
     return render(request, "promotions/booking.html", {"form": form})
 
 
-class PromotionCreateView(CreateView):
-    model = Promotion
-    fields = ["title", "description", "image", "start_date", "end_date"]
+# class PromotionCreateView(CreateView):
+#     model = Promotion
+#     fields = ["title", "description", "image", "start_date", "end_date"]
 
 
-class PromotionDetailView(DetailView):
-    model = Promotion
+# class PromotionDetailView(DetailView):
+#     model = Promotion
 
 
-class PromotionListView(ListView):
-    model = Promotion
+# class PromotionListView(ListView):
+#     model = Promotion
 
 
-class PromotionUpdateView(UpdateView):
-    model = Promotion
-    fields = ["title", "description", "image", "start_date", "end_date"]
+# class PromotionUpdateView(UpdateView):
+#     model = Promotion
+#     fields = ["title", "description", "image", "start_date", "end_date"]
