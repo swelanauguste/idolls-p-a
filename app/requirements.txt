@@ -1,7 +1,8 @@
 crispy-bootstrap5==2024.2
 Django==5.1
-django-allauth==64.1.0
-django-pwa==2.0.0
-python-dotenv==1.0.1
 django-after-response==0.2.2
+django-allauth==64.1.0
+django-crispy-forms==2.3
+django-pwa==2.0.0
 gunicorn==23.0.0
+python-dotenv==1.0.1

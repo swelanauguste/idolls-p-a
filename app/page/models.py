@@ -24,7 +24,7 @@ class Social(models.Model):
 
 class WhyUs(models.Model):
     title = models.CharField(max_length=100)
-    desc = models.TextField(max_length=100, verbose_name="Description")
+    desc = models.TextField(verbose_name="Description")
     sort = models.IntegerField(default=1)
 
     class Meta:
@@ -39,7 +39,7 @@ class Value(models.Model):
         upload_to="values", blank=True, null=True, default="default.png"
     )
     name = models.CharField(max_length=100)
-    desc = models.TextField(max_length=100, verbose_name="Description")
+    desc = models.TextField(verbose_name="Description")
     sort = models.IntegerField(default=1)
 
     class Meta:

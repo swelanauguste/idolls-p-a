@@ -1,18 +1,17 @@
 from django.shortcuts import render
-from django.views.generic import DetailView, ListView, TemplateView, UpdateView
+from django.views.generic import DetailView, ListView, UpdateView
 
-from .models import Social, Value, WhyUs, Banner
+from .models import Banner, Social, Value, WhyUs
 
 
-class Home(TemplateView):
-    template_name = "page/home.html"
-
-    extra_context = {
+def home_view(request):
+    context = {
         "values": Value.objects.all(),
         "whys": WhyUs.objects.all(),
         "socials": Social.objects.all(),
         "banners": Banner.objects.all(),
     }
+    return render(request, "page/home.html", context)
 
 
 class ValueListView(ListView):
