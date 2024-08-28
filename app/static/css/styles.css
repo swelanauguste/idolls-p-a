@@ -11,6 +11,11 @@ html, body{
   font-style: normal;
 }
 
+.bg-top-gradient{
+  background: rgb(152,50,64);
+  background: linear-gradient(180deg,rgba(255,255,255,1) 0%,rgba(254,195,187,1) 40%, rgba(255,255,255,1) 100%);
+}
+
 .bg-pink{
   background-color: #FEC3BB;
 }

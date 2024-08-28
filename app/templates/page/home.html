@@ -6,13 +6,15 @@ Home
 {% endblock head_title %}
 
 {% block content %}
-<div class="w-100">
+<div class="container-fluid">
     <div class="row">
-        <div class="col d-flex align-items-center bg-white">
-            <div class="pe-5 text-end">
+        <div class="col d-flex align-items-center bg-white bg-top-gradient">
+            <div class="text-center">
                 <h1 class="display-1 fw-bold">I-Dolls Promotional
                     Agency</h1>
-                <h3>Capturing the essence of your brand, one moment at a time
+                    <br>
+                <h3>Capturing the essence of your brand,
+                    one moment at a time.
                 </h3>
             </div>
         </div>
@@ -47,7 +49,8 @@ Home
 
     <section class="mb-5">
         <div class="w-100 bg-dark m-0 p-0"
-            style="height: 2rem;"></div>
+            style="height: 2px;"></div>
+        <br><br>
         <div class="container text-center">
             <h1 class="display-2 fw-bold text-burgundy">The Power Of
                 Promotional
@@ -135,41 +138,44 @@ Home
                 alt="">
         </div>
     </section>
-    <div class="row border-dark border-2 border m-5">
-        <div class="col-lg-5">
-
-            <div class="row d-flex justify-content-center align-items-center">
-                <img class="border border-2 border-dark ms-3 mt-5"
-                    style="width: 90%;"
-                    src="{% static 'images/clients1.png' %}"
-                    alt="">
-            </div>
-
-
-        </div>
-        <div id="contact-us"
-            class="col bg-white p-5">
-            <div class="row">
-                <div class="text-center">
-                    
-                    <img style="height: 5rem; width:10rem;"
-                        src="{% static 'images/logo1.png' %}"
+    <section>
+        <div
+            class="row border-dark border-2 border mx-auto mx-lg-5 my-5 py-5 rounded-4">
+            <div class="col-lg-5">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img class="border border-3 border-dark mx-auto  rounded-4"
+                        style="width: 90%;"
+                        src="{% static 'images/clients1.png' %}"
                         alt="">
                 </div>
             </div>
-            <div class="pe-5 text-lg-start text-">
-                <h1 class="display-1 fw-bold text-center">I-Dolls Promotional
-                    Agency</h1>
-                <p class="fs-3 text-center">Capturing the essence of your
-                    brand, one moment at a time
+            <div id="contact-us"
+                class="col bg-white">
+                <br><br><br>
 
-                </p>
-            </div><br>
-            <div class="p-5 text-lg-start">
-                {% include 'page/includes/socials.html' %}
+                <div class="row">
+                    <div class="text-center">
+
+                        <img style="height: 5rem; width:10rem;"
+                            src="{% static 'images/logo1.png' %}"
+                            alt="{% static 'images/logo1.png' %}">
+                    </div>
+                </div>
+                <div class="text-lg-start">
+                    <h1 class="display-3 fw-bold text-center">I-Dolls
+                        Promotional
+                        Agency</h1>
+                    <p class="fs-3 text-center">Capturing the essence of your
+                        brand, one moment at a time
+
+                    </p>
+                </div><br>
+                <div class="text-lg-start">
+                    {% include 'page/includes/socials.html' %}
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>
 
 {% endblock content %}
