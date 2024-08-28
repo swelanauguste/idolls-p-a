@@ -6,8 +6,8 @@ WORKDIR /usr/src/app
 
 # create directory for the app user
 RUN mkdir -p /home/app
-RUN mkdir -p /usr/src/app/mediafiles
-RUN mkdir -p /usr/src/app/staticfiles
+# RUN mkdir -p /usr/src/app/mediafiles
+# RUN mkdir -p /usr/src/app/staticfiles
 
 
 # set environment variables

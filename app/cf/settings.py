@@ -16,7 +16,7 @@ load_dotenv()
 SECRET_KEY = "django-insecure-qn30#n9l)=z@nr*qyw$i+6z((d4nhrbncu440_7t1bvhc6_y-$"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get("DEBUG", default=0))
+DEBUG = os.environ.get("DEBUG")
 
 ALLOWED_HOSTS = ["*"]
 
@@ -221,3 +221,6 @@ directories = ["templates", "static"]
 for directory in directories:
     if not os.path.exists(directory):
         os.makedirs(directory)
+
+
+print(f"DEBUG: {DEBUG}")
