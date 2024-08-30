@@ -6,176 +6,136 @@ Home
 {% endblock head_title %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col d-flex align-items-center bg-white bg-top-gradient">
-            <div class="text-center mt-lg-0 mt-5">
-                <h1 class="display-1 fw-bold">I-Dolls Promotional
-                    Agency</h1>
-                    <br>
-                <h3>Capturing the essence of your brand,
-                    one moment at a time.
-                </h3>
-            </div>
-        </div>
-        <div class="col-lg-5 p-0 m-0">
-            <div id="carouselExampleInterval"
-                class="carousel slide"
-                data-bs-ride="carousel">
-                <div class="carousel-inner">
-
-                    {% include 'page/includes/banner.html' %}
-
-                </div>
-                <button class="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#carouselExampleInterval"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"
-                        aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next"
-                    type="button"
-                    data-bs-target="#carouselExampleInterval"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon"
-                        aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+<div class="row">
+    <div class="col d-flex align-items-center bg-white bg-top-gradient">
+        <div class="text-center mt-lg-0 mt-5 mx-3">
+            <h1 class="display-1 fw-bold">I-Dolls Promotional
+                Agency</h1>
+            <br>
+            <h3>Capturing the essence of your brand,
+                one moment at a time.
+            </h3>
         </div>
     </div>
+    <div class="col-lg-5 p-0 m-0">
+        <div id="carouselExampleInterval"
+            class="carousel slide"
+            data-bs-ride="carousel">
+            <div class="carousel-inner">
 
-    <section class="mb-5">
-        <div class="w-100 bg-dark m-0 p-0"
-            style="height: 2px;"></div>
-        <br><br>
-        <div class="container text-center">
-            <h1 class="display-2 fw-bold text-burgundy">The Power Of
-                Promotional
-                Models</h1>
-            <p class="fw-bold fs1">Welcome to I-Dolls Promotional Agency, where
-                our
-                ambassadors are more than just a friendly face – they are the
-                driving force behind your brand’s success! With charisma,
-                expertise, and a passion for engaging audiences, our team
-                transforms casual event-goers into excited customers.
-                Partnering
-                with I-Dolls means you're not just hiring promotional models;
-                you're empowering your brand with vibrant, energetic advocates
-                who
-                bring your vision to life and elevate your brand to new
-                heights.
-                Let us turn your next event into an unforgettable experience!
-            </p>
-            <br>
-            {% include 'page/includes/values.html' %}
-        </div>
-    </section>
-    <section class="text-center my-5">
-        <a class="btn btn-lg btn-burgundy px-5 rounded-pill"
-            href="{% url 'booking' %}">Services</a>
-    </section>
-    <section class="row bg-burgundy">
-        <div class="col">
-            <img class="promo-img-1"
-                src="{% static 'images/img4.png' %}"
-                alt="">
-        </div>
-        <div class="col text-white p-lg-5 p-5">
-            <div class="p-lg-5">
-                <h1 class="display-4 fw-bold">Our Promo Models and Promo Girls
-                </h1>
-                <p>At I-Dolls Promotional Agency, we take immense pride in
-                    curating a diverse and highly skilled team of brand
-                    ambassadors and promotional experts. Whether you’re hosting
-                    a carnival event, product launch, corporate function, or
-                    any promotional activity, our dedicated team is your key to
-                    elevating your brand’s presence.</p>
-                <p>From charismatic brand ambassadors to dynamic event
-                    hostesses, our team’s talent goes beyond appearances. They
-                    are experts in customer engagement, brand awareness, and
-                    creating memorable experiences that leave a lasting
-                    impression on your audience.
-                </p><br>
-                <a class="btn btn-lg btn-light px-5 rounded-pill"
-                    href="{% url 'booking' %}">More</a>
+                {% include 'page/includes/banner.html' %}
+
             </div>
+            <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"
+                    aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon"
+                    aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-    </section>
-    <section class="row bg-burgundy">
-
-        <div class="col text-white p-lg-5 p-5">
-            <div class="p-lg-5">
-                <h1 class="display-4 fw-bold">Why Choose I-Dolls Promotional
-                    Agency?</h1><br>
-                <p>At I-Dolls Promotional Agency, we go beyond the ordinary.
-                    We’re
-                    dedicated to making every interaction with your brand
-                    unforgettable. Here's why choosing I-Dolls is the right
-                    move
-                    for your promotional needs:</p>
-
-
-                {% include 'page/includes/whys.html' %}
-
-
-                <p>Choose I-Dolls Promotional Agency and partner with a team
-                    that’s
-                    committed to helping you achieve your promotional goals.
-                    Let’s
-                    elevate your brand to new heights together!</p>
-                <br>
-
-                <a class="btn btn-light btn-lg px-5 rounded-pill"
-                    href="{% url 'booking' %}">More</a>
-            </div>
-        </div>
-        <div class="col mx-auto">
-            <img class="promo-img-2 mx-auto"
-                src="{% static 'images/img5.png' %}"
-                alt="">
-        </div>
-    </section>
-    <section>
-        <div
-            class="row border-dark border-2 border mx-auto mx-lg-5 my-5 py-5 rounded-4">
-            <div class="col-lg-5">
-                <div class="d-flex justify-content-center align-items-center">
-                    <img class="border border-3 border-dark mx-auto  rounded-4"
-                        style="width: 90%;"
-                        src="{% static 'images/clients1.png' %}"
-                        alt="">
-                </div>
-            </div>
-            <div id="contact-us"
-                class="col bg-white">
-                <br><br><br>
-
-                <div class="row">
-                    <div class="text-center">
-
-                        <img style="height: 5rem; width:10rem;"
-                            src="{% static 'images/logo1.png' %}"
-                            alt="{% static 'images/logo1.png' %}">
-                    </div>
-                </div>
-                <div class="text-lg-start">
-                    <h1 class="display-3 fw-bold text-center">I-Dolls
-                        Promotional
-                        Agency</h1>
-                    <p class="fs-3 text-center">Capturing the essence of your
-                        brand, one moment at a time
-
-                    </p>
-                </div><br>
-                <div class="text-lg-start">
-                    {% include 'page/includes/socials.html' %}
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 </div>
+
+<section class="mb-5">
+    <div class="w-100 bg-dark m-0 p-0"
+        style="height: 2.5rem;"></div>
+    <br><br>
+    <div class="container text-center">
+        <h1 class="display-2 fw-bold text-burgundy">The Power Of
+            Promotional
+            Models</h1>
+        <p class="fw-bold fs1">Welcome to I-Dolls Promotional Agency, where
+            our
+            ambassadors are more than just a friendly face – they are the
+            driving force behind your brand’s success! With charisma,
+            expertise, and a passion for engaging audiences, our team
+            transforms casual event-goers into excited customers.
+            Partnering
+            with I-Dolls means you're not just hiring promotional models;
+            you're empowering your brand with vibrant, energetic advocates
+            who
+            bring your vision to life and elevate your brand to new
+            heights.
+            Let us turn your next event into an unforgettable experience!
+        </p>
+        <br>
+        {% include 'page/includes/values.html' %}
+    </div>
+</section>
+<section class="text-center my-5">
+    <a class="btn btn-lg btn-burgundy px-5 rounded-pill"
+        href="{% url 'services-list' %}">Services</a>
+</section>
+<section class="row bg-burgundy">
+    <div class="col">
+        <img class="promo-img-1"
+            src="{% static 'images/img4.png' %}"
+            alt="">
+    </div>
+    <div class="col text-white p-lg-5 p-5">
+        <div class="p-lg-5">
+            <h1 class="display-4 fw-bold">Our Promotional Models</h1>
+            <p>At I-Dolls Promotional Agency, we take immense pride in
+                curating a diverse and highly skilled team of brand
+                ambassadors and promotional experts. Whether you’re hosting
+                a carnival event, product launch, corporate function, or
+                any promotional activity, our dedicated team is your key to
+                elevating your brand’s presence.</p>
+            <p>From charismatic brand ambassadors to dynamic event
+                hostesses, our team’s talent goes beyond appearances. They
+                are experts in customer engagement, brand awareness, and
+                creating memorable experiences that leave a lasting
+                impression on your audience.
+            </p><br>
+            <a class="btn btn-lg btn-light px-5 rounded-pill"
+                href="{% url 'services-list' %}">More</a>
+        </div>
+    </div>
+</section>
+<section class="row bg-burgundy">
+
+    <div class="col text-white p-lg-5 p-5">
+        <div class="p-lg-5">
+            <h1 class="display-4 fw-bold">Why Choose I-Dolls Promotional
+                Agency?</h1><br>
+            <p>At I-Dolls Promotional Agency, we go beyond the ordinary.
+                We’re
+                dedicated to making every interaction with your brand
+                unforgettable. Here's why choosing I-Dolls is the right
+                move
+                for your promotional needs:</p>
+
+
+            {% include 'page/includes/whys.html' %}
+
+
+            <p>Choose I-Dolls Promotional Agency and partner with a team
+                that’s
+                committed to helping you achieve your promotional goals.
+                Let’s
+                elevate your brand to new heights together!</p>
+            <br>
+
+            <a class="btn btn-light btn-lg px-5 rounded-pill"
+                href="{% url 'services-list' %}">More</a>
+        </div>
+    </div>
+    <div class="col mx-auto">
+        <img class="promo-img-2 mx-auto"
+            src="{% static 'images/img5.png' %}"
+            alt="">
+    </div>
+</section>
+
 
 {% endblock content %}

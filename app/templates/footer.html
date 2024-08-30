@@ -1,0 +1,31 @@
+{% load static %}
+<section>
+    <div class="row">
+        <div
+            class="col-lg-5 d-flex justify-content-center align-items-center ">
+            <img class="border border-3 border-dark rounded-4"
+                style="width: 50%;"
+                src="{% static 'images/clients1.png' %}"
+                alt="{% static 'images/clients1.png' %}">
+        </div>
+        <div id="contact-us"
+            class="col">
+            <br><br><br>
+            <div class="row">
+                <div class="text-center">
+                    <img style="height: 5rem; width:10rem;"
+                        src="{% static 'images/logo1.png' %}"
+                        alt="{% static 'images/logo1.png' %}">
+                </div>
+            </div>
+            <h1 class="display-3 fw-bold text-center">I-Dolls
+                Promotional
+                Agency</h1>
+            <p class="fs-3 text-center">Contact us</p>
+            <br>
+            <div class="mx-3 my-5">
+                {% include 'page/includes/socials.html' %}
+            </div>
+        </div>
+    </div>
+</section>

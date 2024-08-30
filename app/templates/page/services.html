@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+Services
+{% endblock head_title %}
+
+{% block content %}
+<div class="w-100">
+    <section>
+        <div class="d-flex services-gradient">
+            <div class="m-5 p-5">
+                <h1 class="display-2 text-center fw-bold">Our Services</h1>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="text-bg-dark">
+            <h1 class="display-4 fw-bold p-3 text-center">Promotional Services
+            </h1>
+        </div>
+        <hr class="border border-white border-2">
+    </section>
+    <section>
+        <div class="container text-center">
+            <br>
+            <p class="fw-bold">Welcome to I-Dolls Promotional Agency, where we
+                bring your brand to life through a wide range of dynamic
+                services. Our passionate and talented team is dedicated to
+                ensuring that your brand makes a lasting impact at every event.
+                Explore our services below and discover how we can elevate your
+                brand's presence with creativity, professionalism, and a
+                commitment to excellence.</p>
+        </div>
+        <br>
+    </section>
+    <section>
+        <br>
+        <div class="container">
+            {% include 'page/includes/services.html' %}
+        </div>
+    </section>
+    <section>
+        <br>
+        <div class="text-bg-dark text-center py-5">
+            <div class="container px-5 mx-auto">
+                <h3>All Promotional Services</h3>
+                <br>
+                <p>Thank you for considering I-Dolls Promotional Agency as your
+                    partner in creating unforgettable experiences. We’re here
+                    to help you achieve your brand goals with unparalleled
+                    service and expertise. Don’t forget to explore our premium
+                    services to take your event to the next level.
+                </p>
+                <p>Let’s collaborate to make your next event a resounding
+                    success! Reach out to us today and let’s start crafting
+                    your brand’s next big moment.
+                </p>
+                <br>
+                {% include 'page/includes/services_list.html' %}
+                <br>
+                {% include 'page/includes/premium_services_list.html' %}
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock content %}

@@ -6,15 +6,12 @@
  */
 
 html, body{
-  font-family: "Montserrat", sans-serif;
+  font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
-.bg-top-gradient{
-  background: rgb(152,50,64);
-  background: linear-gradient(180deg,rgba(255,255,255,1) 0%,rgba(254,195,187,1) 40%, rgba(255,255,255,1) 100%);
-}
+
 
 .bg-pink{
   background-color: #FEC3BB;
@@ -64,12 +61,23 @@ html, body{
   color: rgb(0, 0, 0);
 }
 
+.bg-top-gradient{
+  background: rgb(152,50,64);
+  background: linear-gradient(180deg,rgba(255,255,255,1) 0%,rgba(254,195,187,1) 40%, rgba(255,255,255,1) 100%);
+}
+.services-gradient{
+  background: rgb(152,50,64);
+  background: linear-gradient(90deg,rgba(255,255,255,1) 0%,rgba(254,195,187,1) 40%, rgba(255,255,255,1) 100%);
+}
+
 #bg-img{
-    background: url('../images/logo3.jpeg' ); 
+    background: url('../images/logo3.jpeg'); 
     background-size: cover; 
     background-repeat: no-repeat;
     height: 55rem;
 }
+
+
 
 /*
  * Globals
@@ -146,7 +154,7 @@ a:hover {
     height: 10rem;
   }
   .promo-img-1 {
-    height: 20rem;
+    height: 25rem;
 
   }
   .promo-img-2 {

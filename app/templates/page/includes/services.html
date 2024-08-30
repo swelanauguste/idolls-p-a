@@ -1,0 +1,19 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for service in services %}
+    <a class="text-decoration-none text-dark" href="{% url 'booking' %}">
+        <div class="col"
+            style="height: fit-contnt;">
+            <div class="h-100 p-3">
+                <img src="{{service.image.url}}"
+                    class="card-img-top rounded-3"
+                    alt="...">
+                <div class="card-body">
+                    <br>
+                    <h5 class="card-title">{{service.name|title}}</h5>
+                    <p class="card-text">{{service.desc}}.</p>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>

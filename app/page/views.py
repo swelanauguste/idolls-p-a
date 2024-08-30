@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView, UpdateView
 
-from .models import Banner, Social, Value, WhyUs
+from .models import Banner, Service, Social, Value, WhyUs
 
 
 def home_view(request):
@@ -14,14 +14,20 @@ def home_view(request):
     return render(request, "page/home.html", context)
 
 
+def services_view(request):
+    context = {
+        "services": Service.objects.filter(is_premium=False),
+        "premium": Service.objects.filter(is_premium=True),
+        "socials": Social.objects.all(),
+    }
+    return render(request, "page/services.html", context)
+
+
+
+
+
 class ValueListView(ListView):
     model = Value
-
-
-class ValueDetailView(DetailView):
-    model = Value
-
-
-class ValueUpdateView(UpdateView):
-    model = Value
-    fields = ["image", "name", "desc", "sort"]
+    extra_context = {
+        "socials": Social.objects.all(),
+    }
