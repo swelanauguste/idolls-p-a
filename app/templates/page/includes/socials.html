@@ -1,13 +1,13 @@
-<div class="row">
+<div class="d-flex justify-content-evenly">
     {% for social in socials %}
-    <div class="mx-auto col-lg-4">
-        <a class="text-dark text-decoration-none"
-            target="_blank"
-            href="{{social.link}}">
+    <a class="text-dark text-decoration-none"
+        target="_blank"
+        href="{{social.link}}">
+        <div class="d-flex align-items-center">
+
             <span class="me-2"><i
-                    class="bi bi-{{social.icon}} fs-1"></i></span>
-            <span class="ms-2">{{social.name}}</span>
-        </a>
-    </div>
+                    class="bi bi-{{social.icon}} fs-1"></i></span><span>{{social.name}}</span>
+        </div>
+    </a>
     {% endfor %}
 </div>
