@@ -51,7 +51,7 @@ class Value(models.Model):
 
 class Service(models.Model):
     image = models.FileField(
-        upload_to="values", blank=True, null=True, default="default.png"
+        upload_to="services", blank=True, null=True, default="default.png"
     )
     name = models.CharField(max_length=100)
     desc = models.TextField(verbose_name="Description", blank=True, null=True)

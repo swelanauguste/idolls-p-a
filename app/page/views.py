@@ -30,8 +30,9 @@ def booking_view(request):
             return redirect("/")
     else:
         form = BookingForm()
+        socials = Social.objects.all()
 
-    return render(request, "page/booking.html", {"form": form})
+    return render(request, "page/booking.html", {"form": form, "socials": socials})
 
 
 def home_view(request):
