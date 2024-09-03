@@ -63,3 +63,30 @@ class Service(models.Model):
 
     def __str__(self):
         return self.name
+
+    def __str__(self):
+        return self.name
+
+
+class Booking(models.Model):
+    subject = models.CharField(max_length=255)
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True)
+    message = models.TextField()
+    sender = models.EmailField()
+    cc_myself = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.subject
+
+
+# class Promotion(models.Model):
+#     title = models.CharField(max_length=200)
+#     description = models.TextField()
+#     image = models.FileField(upload_to="promotions/")
+#     start_date = models.DateTimeField()
+#     end_date = models.DateTimeField()
+#     is_active = models.BooleanField(default=True)
+
+#     def __str__(self):
+#         return self.title

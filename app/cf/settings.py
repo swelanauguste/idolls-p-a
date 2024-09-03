@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     "after_response",
     "pwa",
     "users",
-    "promotions",
     "page",
 ]
 

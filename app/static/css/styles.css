@@ -7,8 +7,6 @@ html, body{
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   font-style: normal;
-  opacity: 0;
-  transition: opacity .5s;
 }
 
 

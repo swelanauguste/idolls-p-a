@@ -1,32 +1,50 @@
+import csv
+import os
+
 from django.core.management.base import BaseCommand
-from promotions.models import Service
+
+from ...models import Service
+
 
 class Command(BaseCommand):
-    help = 'Adds a predefined list of services to the Service model'
+    help = "Imports data from a CSV file into the Service model"
+
+    def add_arguments(self, parser):
+        parser.add_argument("csv_file", type=str, help="The path to the CSV file.")
 
     def handle(self, *args, **kwargs):
-        services = [
-            "Brand Ambassadors",
-            "Sales Ambassadors",
-            "Promotional Modeling",
-            "Photoshoot and Runway Modeling",
-            "Product Sampling and Demonstration",
-            "Event Hostesses",
-            "Bottle Service",
-            "Bar Services",
-            "Front Gate Services",
-            "Promotional Dancers",
-            "Stage Management",
-            "Photography",
-            "Videography",
-        ]
+        csv_file = kwargs["csv_file"]
 
-        for service_name in services:
-            service, created = Service.objects.get_or_create(name=service_name)
-            if created:
-                self.stdout.write(self.style.SUCCESS(f"Added service: {service_name}"))
-            else:
-                self.stdout.write(self.style.WARNING(f"Service already exists: {service_name}"))
+        if not os.path.exists(csv_file):
+            self.stdout.write(self.style.ERROR(f"File '{csv_file}' does not exist."))
+            return
 
-        self.stdout.write(self.style.SUCCESS("Service list import completed!"))
+        with open(csv_file, mode="r", encoding="utf-8") as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                image = row.get("image", "default.png")
+                name = row.get("name")
+                desc = row.get("desc")
+                sort = row.get("sort", 1)
+                is_premium = row.get("is_premium")
 
+                if not name or not desc:
+                    self.stdout.write(
+                        self.style.WARNING(
+                            f"Skipping row with missing name or description: {row}"
+                        )
+                    )
+                    continue
+
+                services, created = Service.objects.update_or_create(
+                    name=name,
+                    defaults={"image": image, "desc": desc, "sort": sort, "is_premium": is_premium},
+                )
+                if created:
+                    self.stdout.write(self.style.SUCCESS(f"Added services: {services.name}"))
+                else:
+                    self.stdout.write(
+                        self.style.SUCCESS(f"Updated services: {services.name}")
+                    )
+
+        self.stdout.write(self.style.SUCCESS("CSV import completed!"))

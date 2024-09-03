@@ -7,3 +7,5 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ["subject", "service", "message", "sender", "cc_myself"]
+        model = Booking
+        fields = ["subject", "service", "message", "sender", "cc_myself"]
