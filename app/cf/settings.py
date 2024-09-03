@@ -134,7 +134,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # Media files (user-uploaded files)
-MEDIA_URL = "/mediafiles/"
+MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "mediafiles"
 
 SITE_ID = 1
