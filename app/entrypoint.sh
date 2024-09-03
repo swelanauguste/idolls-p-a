@@ -13,7 +13,7 @@
 
 python manage.py makemigrations
 python manage.py migrate
-python manage.py createsuperuser --noinput
+# python manage.py createsuperuser --noinput
 python manage.py collectstatic --noinput
 # python manage.py add_banners
 # python manage.py add_services ./static/docs/services.csv
