@@ -4,6 +4,9 @@
 <html lang="en">
 
 <head>
+    <!-- <meta name="description" -->
+    <!-- content="Test your website with the free SEO check from Seobility and get tips for a better search engine optimization."> -->
+
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1">
@@ -47,13 +50,12 @@
 <body>
     {% include 'nav-bar.html' %}
 
-    <div class="">
-        {% include 'messages.html' %}
+    {% include 'messages.html' %}
+    <div class="min-vh-100">
+        {% block content %}
+
+        {% endblock content %}
     </div>
-
-    {% block content %}
-
-    {% endblock content %}
     {% include 'footer.html' %}
     <script
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
