@@ -1,16 +1,17 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for service in services %}
-    <a class="text-decoration-none text-dark" href="{% url 'booking' %}">
+    <a class="text-decoration-none text-dark"
+        href="{% url 'booking' %}">
         <div class="col"
-            style="height: fit-contnt;">
-            <div class="h-100 p-3">
+            style="height: fit-content;">
+            <div class="card h-100 border-0">
                 <img src="{{service.image.url}}"
-                    class="card-img-top rounded-3"
+                    class="card-img-top rounded-5 shadow"
                     alt="{{service.image.url}}">
                 <div class="card-body">
-                    <br>
-                    <h5 class="card-title text-center">{{service.name|title}}</h5>
-                    <p class="card-text">{{service.desc}}.</p>
+                    <h5 class="card-title text-center">{{service.name|title}}
+                    </h5>
+                    <p class="card-text">{{service.desc}}</p>
                 </div>
             </div>
         </div>

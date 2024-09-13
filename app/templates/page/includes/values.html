@@ -1,7 +1,5 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
-
     {% for value in values %}
-
     <div class="col"
         style="height: fit-contnt;">
         <div class="card h-100 rounded-5 shadow">
@@ -10,10 +8,9 @@
                 alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{value.name|title}}</h5>
-                <p class="card-text">{{value.desc}}.</p>
+                <p class="card-text">{{value.desc}}</p>
             </div>
         </div>
     </div>
     {% endfor %}
-
 </div>

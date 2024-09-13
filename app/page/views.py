@@ -26,7 +26,9 @@ def booking_view(request):
                 booking.subject, booking_message, booking.sender, recipients
             )
 
-            messages.success(request, "Thank you for your message.")
+            messages.success(
+                request, "Thank you for reaching out, we wil get back to you shortly"
+            )
             return redirect("/")
     else:
         form = BookingForm()
