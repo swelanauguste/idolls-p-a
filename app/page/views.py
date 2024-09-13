@@ -27,7 +27,8 @@ def booking_view(request):
             )
 
             messages.success(
-                request, "Thank you for reaching out, we will get back to you shortly"
+                request,
+                "Thank you for reaching out to I-Dolls Promotional Agency! We’ve received your message and will get back to you shortly. We look forward to helping you elevate your next event!",
             )
             return redirect("/")
     else:
