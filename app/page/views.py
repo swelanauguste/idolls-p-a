@@ -27,7 +27,7 @@ def booking_view(request):
             )
 
             messages.success(
-                request, "Thank you for reaching out, we wil get back to you shortly"
+                request, "Thank you for reaching out, we will get back to you shortly"
             )
             return redirect("/")
     else:
