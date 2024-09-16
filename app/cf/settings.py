@@ -17,7 +17,7 @@ SECRET_KEY = "django-insecure-qn30#n9l)=z@nr*qyw$i+6z((d4nhrbncu440_7t1bvhc6_y-$
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get("DEBUG", default=0)))
-
+print(DEBUG)
 ALLOWED_HOSTS = ["i-dolls.kingship.info", "127.0.0.1", "localhost", "*"]
 
 CSRF_TRUSTED_ORIGINS = ["https://i-dolls.kingship.info"]
@@ -220,4 +220,3 @@ directories = ["templates", "static"]
 for directory in directories:
     if not os.path.exists(directory):
         os.makedirs(directory)
-
