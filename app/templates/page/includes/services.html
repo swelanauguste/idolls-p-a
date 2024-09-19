@@ -1,7 +1,7 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for service in services %}
     <a class="text-decoration-none text-dark"
-        href="{% url 'booking' %}">
+        href="{% url 'book' service.slug %}">
         <div class="col"
             style="height: fit-content;">
             <div class="card h-100 border-0">

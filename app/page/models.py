@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.text import slugify
 
 class Banner(models.Model):
     image = models.FileField(upload_to="banners", default="default.png")
@@ -54,6 +54,7 @@ class Service(models.Model):
         upload_to="services", blank=True, null=True, default="default.png"
     )
     name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, blank=True, null=True)
     desc = models.TextField(verbose_name="Description", blank=True, null=True)
     sort = models.IntegerField(default=1, blank=True, null=True)
     is_premium = models.BooleanField(default=False)
@@ -61,8 +62,9 @@ class Service(models.Model):
     class Meta:
         ordering = ["sort"]
 
-    def __str__(self):
-        return self.name
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Service, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -72,8 +74,7 @@ class Booking(models.Model):
     subject = models.CharField(max_length=255)
     service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True)
     message = models.TextField()
-    sender = models.EmailField()
-    cc_myself = models.BooleanField(default=False)
+    email = models.EmailField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

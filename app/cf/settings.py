@@ -17,8 +17,8 @@ SECRET_KEY = "django-insecure-qn30#n9l)=z@nr*qyw$i+6z((d4nhrbncu440_7t1bvhc6_y-$
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get("DEBUG", default=0)))
-print(DEBUG)
-ALLOWED_HOSTS = ["i-dolls.kingship.info", "127.0.0.1", "localhost", "*"]
+
+ALLOWED_HOSTS = ["i-dolls.kingship.info", "127.0.0.1", "localhost",]
 
 CSRF_TRUSTED_ORIGINS = ["https://i-dolls.kingship.info"]
 # Application definition
@@ -166,18 +166,17 @@ ADMINS = [
     ("kingship", "kingship@gmail.com"),
 ]
 
-# if DEBUG:
-#     EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-#     EMAIL_FILE_PATH = "emails"
-# else:
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "idolls758@gmail.com"
-EMAIL_HOST_PASSWORD = os.environ.get("PASS")
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
-DEFAULT_FROM_EMAIL = "idolls758@gmail.com"
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = "emails"
+
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_HOST_USER = "idolls758@gmail.com"
+# EMAIL_HOST_PASSWORD = os.environ.get("PASS")
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# # EMAIL_USE_SSL = False
+# DEFAULT_FROM_EMAIL = "idolls758@gmail.com"
 
 
 # PWA settings
