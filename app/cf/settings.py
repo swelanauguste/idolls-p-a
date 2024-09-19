@@ -18,9 +18,13 @@ SECRET_KEY = "django-insecure-qn30#n9l)=z@nr*qyw$i+6z((d4nhrbncu440_7t1bvhc6_y-$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get("DEBUG", default=0)))
 
-ALLOWED_HOSTS = ["i-dolls.kingship.info", "127.0.0.1", "localhost",]
+ALLOWED_HOSTS = [
+    "idollspromotionalagency.com",
+    "127.0.0.1",
+    "localhost",
+]
 
-CSRF_TRUSTED_ORIGINS = ["https://i-dolls.kingship.info"]
+CSRF_TRUSTED_ORIGINS = ["https://idollspromotionalagency.com"]
 # Application definition
 
 INSTALLED_APPS = [
