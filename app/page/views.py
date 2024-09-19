@@ -1,12 +1,40 @@
 import after_response
 from django.contrib import messages
-from django.core.mail import send_mail
 from django.shortcuts import redirect, render
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
 
 from .forms import BookingForm
 from .models import Banner, Service, Social, Value, WhyUs
 from .tasks import send_booking_us_email
+
+
+def booking(request, slug):
+    service = Service.objects.get(slug=slug)
+    if request.method == "POST":
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            # Save the booking form data to the database
+            booking = form.save()
+
+            # Prepare email sending
+            recipients = ["idolls758@gmail.com"]
+            recipients.append(booking.email)
+            booking_message = f"{booking.service.name}\n\n{booking.message}"
+            # Send email asynchronously
+            send_booking_us_email.after_response(
+                booking.subject, booking_message, booking.email, recipients
+            )
+
+            messages.success(
+                request,
+                "Thank you for reaching out to I-Dolls Promotional Agency! We’ve received your message and will get back to you shortly. We look forward to helping you elevate your next event!",
+            )
+            return redirect("/")
+    else:
+        form = BookingForm(initial={"service": service})
+        socials = Social.objects.all()
+
+    return render(request, "page/booking.html", {"form": form, "socials": socials})
 
 
 def booking_view(request):
@@ -18,12 +46,11 @@ def booking_view(request):
 
             # Prepare email sending
             recipients = ["idolls758@gmail.com"]
-            if booking.cc_myself:
-                recipients.append(booking.sender)
+            recipients.append(booking.email)
             booking_message = f"{booking.service.name}\n\n{booking.message}"
             # Send email asynchronously
             send_booking_us_email.after_response(
-                booking.subject, booking_message, booking.sender, recipients
+                booking.subject, booking_message, booking.email, recipients
             )
 
             messages.success(
@@ -39,6 +66,7 @@ def booking_view(request):
 
 
 def home_view(request):
+    services = Service.objects.all()
     context = {
         "values": Value.objects.all(),
         "whys": WhyUs.objects.all(),
