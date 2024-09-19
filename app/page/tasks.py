@@ -11,3 +11,6 @@ def send_booking_us_email(subject, message, email, recipients):
         recipients,
         fail_silently=False,
     )
+
+
+

@@ -1,7 +1,15 @@
+import os
+
 from django.db import models
 from django.utils.text import slugify
 
+
 class Banner(models.Model):
+    def content_file_name(instance, filename):
+        ext = filename.split(".")[-1]
+        filename = f"{slugify(instance.name)}_{instance.sort}.{ext}"
+        return os.path.join("banners", filename)
+
     image = models.FileField(upload_to="banners", default="default.png")
     title = models.CharField(max_length=100)
     sort = models.IntegerField(default=1)
@@ -35,8 +43,13 @@ class WhyUs(models.Model):
 
 
 class Value(models.Model):
+    def content_file_name(instance, filename):
+        ext = filename.split(".")[-1]
+        filename = f"{slugify(instance.name)}_{instance.sort}.{ext}"
+        return os.path.join("values", filename)
+
     image = models.FileField(
-        upload_to="values", blank=True, null=True, default="default.png"
+        upload_to=content_file_name, blank=True, null=True, default="default.png"
     )
     name = models.CharField(max_length=100)
     desc = models.TextField(verbose_name="Description")
@@ -50,8 +63,13 @@ class Value(models.Model):
 
 
 class Service(models.Model):
+    def content_file_name(instance, filename):
+        ext = filename.split(".")[-1]
+        filename = f"{slugify(instance.name)}_{instance.sort}.{ext}"
+        return os.path.join("services", filename)
+
     image = models.FileField(
-        upload_to="services", blank=True, null=True, default="default.png"
+        upload_to=content_file_name, blank=True, null=True, default="default.png"
     )
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, blank=True, null=True)
