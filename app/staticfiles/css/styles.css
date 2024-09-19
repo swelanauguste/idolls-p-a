@@ -42,7 +42,6 @@ html, body{
 .btn-pink:hover{
   border-color: #983240;
   background-color: #983240;
-
   color: white;
 }
 
@@ -54,7 +53,7 @@ html, body{
 .btn-burgundy:hover{
   border-color: #FEC3BB;
   background-color: #FEC3BB;
-
+  border: #983240 solid 2px;
   color: rgb(0, 0, 0);
 }
 
