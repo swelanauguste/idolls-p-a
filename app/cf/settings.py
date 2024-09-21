@@ -24,7 +24,7 @@ ALLOWED_HOSTS = [
     "localhost",
 ]
 
-CSRF_TRUSTED_ORIGINS = ["https://idollspromotionalagency.com"]
+CSRF_TRUSTED_ORIGINS = ["https://idollspromotionalagency.com", "http://localhost:8004"]
 # Application definition
 
 INSTALLED_APPS = [

@@ -1,18 +1,29 @@
 services:
   web:
     build: ./app
-    # command: python manage.py runserver 0.0.0.0:8004
-    command: gunicorn cf.wsgi:application --bind 0.0.0.0:8004
+    # command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn cf.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - ./app/:/usr/src/app/
-      # - static_volume:/usr/src/app/staticfiles
-      # - media_volume:/usr/src/app/mediafiles
-    ports:
-      - 8004:8004
+      # - ./app/:/usr/src/app/
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
+
     env_file:
       - ./.env
-    restart: always
+    expose:
+      - 8000
 
-# volumes:
-#   media_volume:
-#   static_volume:
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
+
+    ports:
+      - 8004:80
+    depends_on:
+      - web
+
+volumes:
+  static_volume:
+  media_volume:
