@@ -2,7 +2,6 @@ import csv
 import os
 
 from django.core.management.base import BaseCommand
-
 from ...models import Service
 
 
@@ -36,15 +35,21 @@ class Command(BaseCommand):
                     )
                     continue
 
+                if Service.objects.filter(name=name).exists():
+                    self.stdout.write(
+                        self.style.WARNING(f"Service already exists: {name}. Skipping update.")
+                    )
+                    continue
+
+                # Create or update the service if it does not exist
                 services, created = Service.objects.update_or_create(
                     name=name,
                     defaults={"image": image, "desc": desc, "sort": sort, "is_premium": is_premium},
                 )
+
                 if created:
-                    self.stdout.write(self.style.SUCCESS(f"Added services: {services.name}"))
+                    self.stdout.write(self.style.SUCCESS(f"Added service: {services.name}"))
                 else:
-                    self.stdout.write(
-                        self.style.SUCCESS(f"Updated services: {services.name}")
-                    )
+                    self.stdout.write(self.style.SUCCESS(f"Updated service: {services.name}"))
 
         self.stdout.write(self.style.SUCCESS("CSV import completed!"))

@@ -1,8 +1,6 @@
 import csv
 import os
-
 from django.core.management.base import BaseCommand
-
 from ...models import Value
 
 
@@ -35,15 +33,17 @@ class Command(BaseCommand):
                     )
                     continue
 
-                value, created = Value.objects.update_or_create(
+                # Try to create the value, skip if it already exists
+                value, created = Value.objects.get_or_create(
                     name=name,
                     defaults={"image": image, "desc": desc, "sort": sort},
                 )
+
                 if created:
                     self.stdout.write(self.style.SUCCESS(f"Added value: {value.name}"))
                 else:
                     self.stdout.write(
-                        self.style.SUCCESS(f"Updated value: {value.name}")
+                        self.style.WARNING(f"Value already exists: {value.name}. Skipping.")
                     )
 
         self.stdout.write(self.style.SUCCESS("CSV import completed!"))

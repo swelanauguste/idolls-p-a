@@ -24,16 +24,18 @@ class Command(BaseCommand):
                 icon = row.get('icon', 1)
 
                 if not name or not link:
-                    self.stdout.write(self.style.WARNING(f"Skipping row with missing name or description: {row}"))
+                    self.stdout.write(self.style.WARNING(f"Skipping row with missing name or link: {row}"))
                     continue
 
-                social, created = Social.objects.update_or_create(
+                # Try to create the social record, skip if it already exists
+                social, created = Social.objects.get_or_create(
                     name=name,
                     defaults={'link': link, 'icon': icon},
                 )
+
                 if created:
                     self.stdout.write(self.style.SUCCESS(f"Added social: {social.name}"))
                 else:
-                    self.stdout.write(self.style.SUCCESS(f"Updated social: {social.name}"))
+                    self.stdout.write(self.style.WARNING(f"Social already exists: {social.name}. Skipping."))
 
         self.stdout.write(self.style.SUCCESS("CSV import completed!"))

@@ -27,13 +27,15 @@ class Command(BaseCommand):
                     self.stdout.write(self.style.WARNING(f"Skipping row with missing title or description: {row}"))
                     continue
 
-                whyus, created = WhyUs.objects.update_or_create(
+                # Try to create the WhyUs record, skip if it already exists
+                whyus, created = WhyUs.objects.get_or_create(
                     title=title,
                     defaults={'desc': desc, 'sort': sort},
                 )
+
                 if created:
-                    self.stdout.write(self.style.SUCCESS(f"Added whyus: {whyus.title}"))
+                    self.stdout.write(self.style.SUCCESS(f"Added WhyUs: {whyus.title}"))
                 else:
-                    self.stdout.write(self.style.SUCCESS(f"Updated whyus: {whyus.title}"))
+                    self.stdout.write(self.style.WARNING(f"WhyUs already exists: {whyus.title}. Skipping."))
 
         self.stdout.write(self.style.SUCCESS("CSV import completed!"))
