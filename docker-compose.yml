@@ -7,11 +7,18 @@ services:
       # - ./app/:/usr/src/app/
       - static_volume:/home/app/web/staticfiles
       - media_volume:/home/app/web/mediafiles
-
     env_file:
       - ./.env
     expose:
       - 8000
+    depends_on:
+      - db
+  db:
+    image: postgres:17rc1-bookworm
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
 
   nginx:
     build: ./nginx
@@ -25,5 +32,6 @@ services:
       - web
 
 volumes:
+  postgres_data:
   static_volume:
   media_volume:
