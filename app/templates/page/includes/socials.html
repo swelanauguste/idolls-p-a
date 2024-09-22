@@ -1,19 +1,10 @@
 {% load static %}
-<div class="row">
+<div class="d-flex justify-content-around">
     {% for social in socials %}
-    <div class="col-lg-1 mx-auto mb-2 mb-lg-0">
-        <a class="text-white text-decoration-none"
-            target="_blank"
+    <p><a title="{{social.name}}"
             href="{{social.link}}">
-            <div class="d-flex align-items-center">
-                
-                <span><img
-                        src="{% get_static_prefix %}icons/{{social.icon}}.svg"
-                        alt=""></span>
-            
-                <br>
-            </div>
-        </a>
-    </div>
+            <img src="{% get_static_prefix %}icons/{{social.icon}}.svg"
+                alt="{% get_static_prefix %}icons/{{social.icon}}.svg">
+        </a></p>
     {% endfor %}
 </div>
