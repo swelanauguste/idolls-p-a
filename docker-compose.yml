@@ -20,7 +20,7 @@ services:
       - media_volume:/home/app/web/mediafiles
 
     ports:
-      - 8004:80
+      - 80:80
     depends_on:
       - web
 
