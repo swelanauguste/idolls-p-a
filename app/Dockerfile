@@ -39,7 +39,7 @@ FROM python:3.13.0rc2-bookworm
 RUN mkdir -p /home/app
 
 # create the app user
-RUN addgroup --system app && adduser --system --group app
+# RUN addgroup --system app && adduser --system --group app
 
 # create the appropriate directories
 ENV HOME=/home/app
@@ -64,11 +64,11 @@ RUN chmod +x  $APP_HOME/entrypoint.sh
 # copy project
 COPY . $APP_HOME
 
-# chown all the files to the app user
-RUN chown -R app:app $APP_HOME
+# # chown all the files to the app user
+# RUN chown -R app:app $APP_HOME
 
-# change to the app user
-USER app
+# # change to the app user
+# USER app
 
 # run entrypoint.sh
 ENTRYPOINT ["/home/app/web/entrypoint.sh"]
