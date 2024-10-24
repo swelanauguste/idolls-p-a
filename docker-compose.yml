@@ -14,23 +14,25 @@ services:
     depends_on:
       - db
     restart: unless-stopped
+    
   db:
     image: postgres:17rc1-bookworm
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.env
+    restart: unless-stopped
 
   nginx:
     build: ./nginx
     volumes:
       - static_volume:/home/app/web/staticfiles
       - media_volume:/home/app/web/mediafiles
-
     ports:
       - 8004:80
     depends_on:
       - web
+    restart: unless-stopped
 
 volumes:
   postgres_data:
